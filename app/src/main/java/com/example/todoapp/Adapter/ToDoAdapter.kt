@@ -1,24 +1,26 @@
 package net.penguincoders.doit.Adapters
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoapp.R
 import net.penguincoders.doit.AddNewTask
 import net.penguincoders.doit.MainActivity
 import net.penguincoders.doit.Model.ToDoModel
-import net.penguincoders.doit.R
 import net.penguincoders.doit.Utils.DatabaseHandler
 
 class ToDoAdapter(private val db: DatabaseHandler, private val activity: MainActivity) :
     RecyclerView.Adapter<ToDoAdapter.ViewHolder>() {
 
     private var todoList: List<ToDoModel> = ArrayList()
+    private val context: Context = activity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
+        val itemView = LayoutInflater.from(context)
             .inflate(R.layout.task_layout, parent, false)
         return ViewHolder(itemView)
     }
